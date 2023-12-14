@@ -1,13 +1,14 @@
 import numpy as np
 import cv2
 
-def string_to_video(message, stringSpeed):
+def string_to_video(message):
 
    # Start params
     height = 100
     width = 100
     duration = 3
     fps = 30
+    stringSpeed = 1
 
    # Set the parameters of stream
     out = cv2.VideoWriter("result.mp4", cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
