@@ -1,16 +1,17 @@
 import numpy as np
 import cv2
 
-def string_to_video(message, stringSpeed):
+def string_to_video(message):
 
    # Start params
     height = 100
     width = 100
     duration = 3
     fps = 30
+    stringSpeed = 2
 
    # Set the parameters of stream
-    out = cv2.VideoWriter("result.mp4", cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+    out = cv2.VideoWriter("result.webm", cv2.VideoWriter_fourcc(*'VP90'), fps, (width, height))
 
     # Creating frame with black background
     frame = np.zeros((height, width, 3),dtype=np.uint8)
@@ -29,9 +30,7 @@ def string_to_video(message, stringSpeed):
         x -= stringSpeed
 
         # Put text to frame with different fonts
-        cv2.putText(frame, message, (x-50, y-30), cv2.AKAZE_DESCRIPTOR_KAZE_UPRIGHT, 0.7, (34,139,34)) # Top ticker
-        cv2.putText(frame, message, (x, y), cv2.BORDER_REFLECT, 0.7, (255,0,0)) # Main ticker
-        cv2.putText(frame, message, (x+50, y+30), cv2.QT_STYLE_ITALIC, 0.7, (255, 255, 153)) # Bot ticker
+        cv2.putText(frame, message, (x, y), cv2.FONT_HERSHEY_COMPLEX, 1, (255,255,255)) # Main ticker
 
         out.write(frame)
 
