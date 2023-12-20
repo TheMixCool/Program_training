@@ -12,7 +12,6 @@ def page(request):
     	request = request.GET.get('text')
         
     )
-    speed = 1
-    string_to_video(text, speed)
+    string_to_video(text)
     
     return render(request,'index.html')
