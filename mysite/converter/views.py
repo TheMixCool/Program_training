@@ -6,10 +6,12 @@ from foo import string_to_video
 
 def page(request):
     text = request.GET.get('text')
+    speed = request.GET.get('speed')
     
     MyClass.objects.create(
     	request = request.GET.get('text')
+        
     )
-    string_to_video(text)
+    string_to_video(text, speed)
     
     return render(request,'index.html')
